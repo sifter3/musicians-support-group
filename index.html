@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoelace + Handlebars Example</title>
+    <!-- Include Shoelace CSS -->
+    <link href="https://unpkg.com/@shoelace-style/shoelace/dist/themes/light.css" rel="stylesheet">
+    <script src="https://unpkg.com/@shoelace-style/shoelace/dist/components/button/button.js"></script>
+    <script src="https://unpkg.com/@shoelace-style/shoelace/dist/components/toast/toast.js"></script>
+    <script src="https://unpkg.com/@shoelace-style/shoelace/dist/components/card/card.js"></script>
+    <!-- Include Handlebars from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-/O9zC/6FXnNggfL0S6a4CYsibFdW7EfJ2vMW0LI72TSW0yqj8ybfDtfvIqPmCMMtWs7XaGGF163a2maFFH1YAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+<div id="shoelace-content">
+  <!-- Shoelace Card Component -->
+  <sl-card class="card-demo">
+    <img slot="image" src="https://via.placeholder.com/400x225" alt="Placeholder">
+    <strong>Hello, Sifter3!</strong>
+    <p>This is a simple Shoelace card demo.</p>
+    <sl-button slot="footer" type="primary">Click Me</sl-button>
+  </sl-card>
+
+  <!-- Button Component -->
+  <sl-button id="toast-trigger" variant="primary">Click Me!</sl-button>
+  
+  <!-- Toast Script -->
+  <script>
+    document.getElementById('toast-trigger').addEventListener('click', () => {
+      const toast = document.createElement('sl-toast');
+      toast.textContent = 'Hello, Sifter3!';
+      document.body.appendChild(toast);
+      toast.show();
+    });
+  </script>
+
+</div>
+
+<script id="entry-template" type="text/x-handlebars-template">
+  <div class="entry">
+    <h1>{{title}}</h1>
+    <div class="body">
+      {{body}}
+    </div>
+  </div>
+</script>
+  
+</body>
+</html>
